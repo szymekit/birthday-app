@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,16 +8,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./birthday.component.scss'],
   imports: [CommonModule]
 })
-export class BirthdayComponent implements OnInit {
-  name: string = '';
-  surname: string = '';
-
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.name = params['name'] || 'Gość';
-      this.surname = params['surname'] || '';
-    });
-  }
+export class BirthdayComponent {
+  location = 'Browar Welders w Sierakowicach';
+  date = '15.03 (sobota)';
+  time = '16:00';
 }

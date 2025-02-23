@@ -1,271 +1,46 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: black;
-  overflow: hidden;
+.invite-container {
+  background: linear-gradient(45deg, #7b2ff7, #f107a3, #12c2e9, #c471ed, #f64f59);
+  background-size: 300%;
+  animation: gradientShift 8s ease-in-out infinite;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 2rem;
+  padding: 1rem;
+  text-align: center;
 }
 
-/* Kosmiczne tło */
-.galactic-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background: radial-gradient(circle, #1b1e24, #000);
-}
-
-.stars {
-  width: 100vw;
-  height: 100vh;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  background-size: cover;
-  animation: starMove 50s linear infinite;
-}
-
-@keyframes starMove {
-  0% { background-position: 0 0; }
-  100% { background-position: -10000px 5000px; }
-}
-
-/* Planety - realistyczne */
-.planet {
-  position: absolute;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-}
-
-.moon {
-  width: 120px;
-  height: 120px;
-  bottom: 100px;
-  left: 20px;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg');
-  animation: planetFloat 12s ease-in-out infinite;
-}
-
-.mars {
-  width: 100px;
-  height: 100px;
-  top: 50px;
-  right: 30px;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg');
-  animation: planetFloat 10s ease-in-out infinite reverse;
-}
-
-.earth {
-  width: 140px;
-  height: 140px;
-  bottom: 100px;
-  right: 150px;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg');
-  animation: planetFloat 14s ease-in-out infinite;
-}
-
-@keyframes planetFloat {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(20px); }
-  100% { transform: translateY(0); }
-}
-
-/* Ulepszona rakieta */
-.rocket {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: rocketFly 8s ease-in-out infinite;
-}
-
-.body {
-  width: 50px;
-  height: 150px;
-  background: linear-gradient(to top, #e74c3c, #c0392b);
-  border-radius: 25px 25px 0 0;
-  position: relative;
-}
-
-.window {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  background: #2980b9;
-  border-radius: 50%;
-  border: 3px solid #fff;
-}
-
-.fin {
-  width: 20px;
-  height: 40px;
-  background: #c0392b;
-  position: absolute;
-  bottom: 0;
-}
-
-.left {
-  left: -20px;
-  transform: skewY(20deg);
-}
-
-.right {
-  right: -20px;
-  transform: skewY(-20deg);
-}
-
-.flame {
-  width: 10px;
-  height: 20px;
-  background: linear-gradient(to bottom, #f39c12, #e74c3c);
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  animation: flameFlicker 0.1s infinite alternate;
-}
-
-@keyframes flameFlicker {
-  0% { transform: translateX(-50%) scaleY(1); }
-  100% { transform: translateX(-50%) scaleY(1.2); }
-}
-
-@keyframes rocketFly {
+@keyframes gradientShift {
   0% {
-    bottom: 0;
-    transform: translateX(-50%) rotate(0deg);
+    background-position: 0% 50%;
   }
   50% {
-    bottom: 100%;
-    transform: translateX(-50%) rotate(180deg);
+    background-position: 100% 50%;
   }
   100% {
-    bottom: 0;
-    transform: translateX(-50%) rotate(360deg);
+    background-position: 0% 50%;
   }
 }
 
-/* Tekst z gradientem i dynamiczną animacją */
-.text-container {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: white;
-  z-index: 2;
+.invite-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  font-weight: bold;
 }
 
-.galactic-title {
-  font-size: 2.5em;
-  background: linear-gradient(to right, #ff6347, #ffcc00, #6a0dad);
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: textAppear 3s ease-in-out forwards;
+.invite-text {
+  font-size: 1rem;
+  color: #555;
 }
 
-.guest-name {
-  color: #ff6347;
-}
-
-/* Gradientowy dolny tekst z animacją pisania */
-.party-details {
-  font-size: 1.8em;
-  margin-top: 40px;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  background: linear-gradient(90deg, #00c6ff, #0072ff, #6a00ff, #ff00cc);
-  -webkit-background-clip: text;
-  color: transparent;
-  border-right: 2px solid rgba(255,255,255,0.75); /* Usuniemy na telefonie */
-  animation: typing 8s steps(50, end) forwards, blink 0.75s step-end infinite;
-  animation-fill-mode: forwards;
-}
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink {
-  from, to { border-color: transparent; }
-  50% { border-color: rgba(255,255,255,0.75); }
-}
-
-/* Nowa animacja dla komórek - kręcenie w kółko */
-@keyframes spinText {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Responsywność */
-@media (max-width: 768px) {
-  .text-container {
-    top: 15%;
-  }
-
-  .galactic-title {
-    font-size: 2em;
-    top: 15%; /* Podnosimy tekst na telefonach */
-  }
-
-  .party-details {
-    font-size: 1.4em;
-    width: 100%;
-    white-space: normal;
-    margin-top: 20px; /* Mniejsza przerwa na telefonach */
-    border-right: none; /* Usuwamy border-right */
-    animation: spinText 8s linear infinite; /* Wolniejszy obrót tekstu */
-  }
-
-  .rocket {
-    transform: translateX(-50%) scale(0.8); /* Rakieta mniejsza na mobilnych */
-  }
-
-  .planet {
-    width: 70px;
-    height: 70px; /* Zmniejszamy planety na mniejszych ekranach */
-  }
-
-  .moon {
-    bottom: 50px;
-  }
-
-  .earth {
-    bottom: 50px;
-    right: 70px;
+.details {
+  margin-top: 1rem;
+  p {
+    margin: 0.5rem 0;
   }
 }
 
-@media (max-width: 480px) {
-  .galactic-title {
-    font-size: 1.5em;
-    top: 15%; /* Podnosimy tekst wyżej na bardzo małych ekranach */
-  }
-
-  .party-details {
-    font-size: 1.2em;
-    width: 100%;
-    white-space: normal;
-    margin-top: 20px;
-    border-right: none; /* Usuwamy border-right */
-    animation: spinText 8s linear infinite; /* Wolniejszy obrót tekstu */
-  }
-
-  .rocket {
-    transform: translateX(-50%) scale(0.7); /* Rakieta jeszcze mniejsza */
-  }
-
-  .planet {
-    width: 50px;
-    height: 50px; /* Zmniejszamy planety na bardzo małych ekranach */
-  }
-
-  .moon, .earth {
-    bottom: 30px;
-  }
+.cta-container {
+  margin-top: 2rem;
 }

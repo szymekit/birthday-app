@@ -1,0 +1,49 @@
+.hero-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: #00acef;
+  margin: 3rem 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 1rem;
+  max-width: 600px;
+}
+
+.galaxy-text {
+  font-family: 'Arial', sans-serif;
+  font-size: 2em;
+  text-align: center;
+  background: linear-gradient(45deg, #7b2ff7, #f107a3, #12c2e9, #c471ed, #f64f59);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: galaxy 5s linear infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes galaxy {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
